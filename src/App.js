@@ -1,24 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import { GlobalStyle } from "./styles/GlobalStyles.styled";
+import { ThemeProvider } from "styled-components";
+import { useState } from "react";
+import { themeObject } from "./styles/theme";
+import Sidebar from "./components/Sidebar/Sidebar";
+import Main from "./components/Main/Main";
+
+import styled from "styled-components";
+import Suggestions from "./components/Suggestions";
+
+const Wrapper = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 3fr 1.2fr;
+  grid-auto-rows: 1fr;
+  height: 100vh;
+`;
 
 function App() {
+  const [theme, setTheme] = useState("light");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <ThemeProvider
+        theme={
+          theme === "light" ? themeObject.light : themeObject.dark
+        }
+      >
+        <Wrapper>
+          <GlobalStyle />
+          <Sidebar />
+          <Main />
+          <Suggestions />
+        </Wrapper>
+      </ThemeProvider>
+    </>
   );
 }
 
