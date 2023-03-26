@@ -12,6 +12,12 @@ const StyledLink = styled.div`
   transition: background-color 200ms;
   color: ${({ theme }) => theme.textColor};
 
+  @media (width <= 1160px) {
+    & > *:nth-child(2) {
+      display: none;
+    }
+  }
+
   & svg {
     font-size: 1.4rem;
     transition: scale 200ms;

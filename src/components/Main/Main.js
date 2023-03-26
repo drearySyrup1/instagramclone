@@ -11,17 +11,21 @@ import { TbSend as SendIcon } from "react-icons/tb";
 const StoryWrapper = styled.div`
   display: flex;
   gap: 10px;
-  width: 100%;
+  max-width: 630px;
   height: min-content;
   overflow-x: scroll;
 `;
 
-const StoryCircle = styled.div`
+export const PhotoCircle = styled.div`
   --size: ${({ size }) => size}px;
   width: var(--size);
   height: var(--size);
-  flex-shrink: 0;
   border-radius: 50%;
+  background-color: #000;
+  flex-shrink: 0;
+`;
+
+const StoryCircle = styled(PhotoCircle)`
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -78,14 +82,6 @@ const Post = styled.div`
     height: 600px;
     object-fit: cover;
     border-radius: 5px;
-  }
-
-  && .grey {
-    color: grey;
-  }
-
-  && .bold {
-    font-weight: bold;
   }
 
   & input {

@@ -10,9 +10,28 @@ import Suggestions from "./components/Suggestions";
 
 const Wrapper = styled.div`
   display: grid;
-  grid-template-columns: 1fr 3fr 1.2fr;
+  grid-template-columns: 350px 3fr 1.2fr;
   grid-auto-rows: 1fr;
   height: 100vh;
+
+  @media (width <= 1610px) {
+    grid-template-columns: 255px 3fr 1.2fr;
+
+  @media (width <= 1160px) {
+    grid-template-columns: min-content 3fr 1.2fr;
+  }
+
+  @media (width <= 1025px) {
+    grid-template-columns: min-content 1fr;
+  }
+
+  && .grey {
+    color: grey;
+  }
+
+  && .bold {
+    font-weight: bold;
+  }
 `;
 
 function App() {

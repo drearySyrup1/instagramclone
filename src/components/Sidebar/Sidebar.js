@@ -26,6 +26,10 @@ const Instagram = styled.h1`
   margin-bottom: 30px;
   font-family: "Trebuchet MS", "Lucida Sans Unicode",
     "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+
+  @media (width <= 1160px) {
+    display: none;
+  }
 `;
 
 const Sidebar = () => {
@@ -34,39 +38,39 @@ const Sidebar = () => {
       <Instagram>Instagram</Instagram>
       <SidebarLink>
         <MdHomeFilled />
-        Home
+        <span>Home</span>
       </SidebarLink>
       <SidebarLink>
         <BsSearch />
-        Search
+        <span>Search</span>
       </SidebarLink>
       <SidebarLink>
         <MdOutlineExplore />
-        Expore
+        <span>Expore</span>
       </SidebarLink>
       <SidebarLink>
         <MdOutlineSlowMotionVideo />
-        Reels
+        <span>Reels</span>
       </SidebarLink>
       <SidebarLink>
         <RiMessengerLine />
-        Messages
+        <span>Messages</span>
       </SidebarLink>
       <SidebarLink>
         <BsHeart />
-        Notifications
+        <span>Notifications</span>
       </SidebarLink>
       <SidebarLink>
         <BsPlusSquare />
-        Create
+        <span>Create</span>
       </SidebarLink>
       <SidebarLink>
         <MdHomeFilled />
-        Profile
+        <span>Profile</span>
       </SidebarLink>
       <SidebarLink className="more">
         <MdHomeFilled />
-        More
+        <span>More</span>
       </SidebarLink>
     </StyledSidebar>
   );
