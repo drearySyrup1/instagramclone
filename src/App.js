@@ -1,38 +1,10 @@
-import { GlobalStyle } from "./styles/GlobalStyles.styled";
 import { ThemeProvider } from "styled-components";
 import { useState } from "react";
 import { themeObject } from "./styles/theme";
-import Sidebar from "./components/Sidebar/Sidebar";
-import Main from "./components/Main/Main";
-
-import styled from "styled-components";
-import Suggestions from "./components/Suggestions";
-
-const Wrapper = styled.div`
-  display: grid;
-  grid-template-columns: 350px 3fr 1.2fr;
-  grid-auto-rows: 1fr;
-  height: 100vh;
-
-  @media (width <= 1610px) {
-    grid-template-columns: 255px 3fr 1.2fr;
-
-  @media (width <= 1160px) {
-    grid-template-columns: min-content 3fr 1.2fr;
-  }
-
-  @media (width <= 1025px) {
-    grid-template-columns: min-content 1fr;
-  }
-
-  && .grey {
-    color: grey;
-  }
-
-  && .bold {
-    font-weight: bold;
-  }
-`;
+import { Route, Routes } from "react-router-dom";
+import SharedLayout from "./Routes/SharedLayout";
+import IndexLayout from "./Routes/IndexLayout";
+import ProfileLayout from "./Routes/ProfileLayout";
 
 function App() {
   const [theme, setTheme] = useState("light");
@@ -43,12 +15,12 @@ function App() {
           theme === "light" ? themeObject.light : themeObject.dark
         }
       >
-        <Wrapper>
-          <GlobalStyle />
-          <Sidebar />
-          <Main />
-          <Suggestions />
-        </Wrapper>
+        <Routes>
+          <Route path="/" element={<SharedLayout />}>
+            <Route index element={<IndexLayout />} />
+            <Route path="profile" element={<ProfileLayout />} />
+          </Route>
+        </Routes>
       </ThemeProvider>
     </>
   );

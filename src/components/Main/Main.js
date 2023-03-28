@@ -7,6 +7,7 @@ import {
 import { AiOutlineHeart as HeartIcon } from "react-icons/ai";
 import { HiOutlineChatBubbleOvalLeft as CommentIcon } from "react-icons/hi2";
 import { TbSend as SendIcon } from "react-icons/tb";
+import { mediaSizes } from "../../mediaSizes";
 
 const StoryWrapper = styled.div`
   display: flex;
@@ -17,11 +18,12 @@ const StoryWrapper = styled.div`
 `;
 
 export const PhotoCircle = styled.div`
-  --size: ${({ size }) => size}px;
+  --size: ${({ size }) => size};
   width: var(--size);
   height: var(--size);
   border-radius: 50%;
-  background-color: #000;
+  background-color: ${({ theme }) => theme.textColor};
+
   flex-shrink: 0;
 `;
 
@@ -61,6 +63,10 @@ const MainStyled = styled.div`
   gap: 40px;
   justify-items: center;
   padding: 2rem;
+
+  @media (width <= ${mediaSizes.XS}) {
+    padding: 0rem;
+  }
 `;
 
 const PostsWrapper = styled.div`
@@ -88,6 +94,7 @@ const Post = styled.div`
     outline: 0;
     border: 0;
     font-size: 0.75rem;
+    background-color: ${({ theme }) => theme.bg};
   }
 `;
 
@@ -124,74 +131,74 @@ const InteractionMenu = styled.div`
 const Main = () => {
   return (
     <MainStyled>
-      <StoryWrapper>
-        <StoryCircle size="70">
+      {/* <StoryWrapper>
+        <StoryCircle size="70px">
           <img
             src="https://images.unsplash.com/photo-1527423460268-0b3795a97e7f?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&ixid=MnwxfDB8MXxyYW5kb218MHx8cGVyc29ufHx8fHx8MTY3OTc4OTc0MA&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=800"
             alt=""
           />
         </StoryCircle>
-        <StoryCircle size="70">
+        <StoryCircle size="70px">
           <img
             src="https://images.unsplash.com/photo-1527423460268-0b3795a97e7f?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&ixid=MnwxfDB8MXxyYW5kb218MHx8cGVyc29ufHx8fHx8MTY3OTc4OTc0MA&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=800"
             alt=""
           />
         </StoryCircle>
-        <StoryCircle size="70">
+        <StoryCircle size="70px">
           <img
             src="https://images.unsplash.com/photo-1527423460268-0b3795a97e7f?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&ixid=MnwxfDB8MXxyYW5kb218MHx8cGVyc29ufHx8fHx8MTY3OTc4OTc0MA&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=800"
             alt=""
           />
         </StoryCircle>
-        <StoryCircle size="70">
+        <StoryCircle size="70px">
           <img
             src="https://images.unsplash.com/photo-1527423460268-0b3795a97e7f?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&ixid=MnwxfDB8MXxyYW5kb218MHx8cGVyc29ufHx8fHx8MTY3OTc4OTc0MA&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=800"
             alt=""
           />
         </StoryCircle>
-        <StoryCircle size="70">
+        <StoryCircle size="70px">
           <img
             src="https://images.unsplash.com/photo-1527423460268-0b3795a97e7f?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&ixid=MnwxfDB8MXxyYW5kb218MHx8cGVyc29ufHx8fHx8MTY3OTc4OTc0MA&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=800"
             alt=""
           />
         </StoryCircle>
-        <StoryCircle size="70">
+        <StoryCircle size="70px">
           <img
             src="https://images.unsplash.com/photo-1527423460268-0b3795a97e7f?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&ixid=MnwxfDB8MXxyYW5kb218MHx8cGVyc29ufHx8fHx8MTY3OTc4OTc0MA&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=800"
             alt=""
           />
         </StoryCircle>
-        <StoryCircle size="70">
+        <StoryCircle size="70px">
           <img
             src="https://images.unsplash.com/photo-1527423460268-0b3795a97e7f?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&ixid=MnwxfDB8MXxyYW5kb218MHx8cGVyc29ufHx8fHx8MTY3OTc4OTc0MA&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=800"
             alt=""
           />
         </StoryCircle>
-        <StoryCircle size="70">
+        <StoryCircle size="70px">
           <img
             src="https://images.unsplash.com/photo-1527423460268-0b3795a97e7f?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&ixid=MnwxfDB8MXxyYW5kb218MHx8cGVyc29ufHx8fHx8MTY3OTc4OTc0MA&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=800"
             alt=""
           />
         </StoryCircle>
-        <StoryCircle size="70">
+        <StoryCircle size="70px">
           <img
             src="https://images.unsplash.com/photo-1527423460268-0b3795a97e7f?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&ixid=MnwxfDB8MXxyYW5kb218MHx8cGVyc29ufHx8fHx8MTY3OTc4OTc0MA&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=800"
             alt=""
           />
         </StoryCircle>
-        <StoryCircle size="70">
+        <StoryCircle size="70px">
           <img
             src="https://images.unsplash.com/photo-1527423460268-0b3795a97e7f?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&ixid=MnwxfDB8MXxyYW5kb218MHx8cGVyc29ufHx8fHx8MTY3OTc4OTc0MA&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=800"
             alt=""
           />
         </StoryCircle>
-        <StoryCircle size="70">
+        <StoryCircle size="70px">
           <img
             src="https://images.unsplash.com/photo-1527423460268-0b3795a97e7f?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&ixid=MnwxfDB8MXxyYW5kb218MHx8cGVyc29ufHx8fHx8MTY3OTc4OTc0MA&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=800"
             alt=""
           />
         </StoryCircle>
-      </StoryWrapper>
+      </StoryWrapper> */}
       <PostsWrapper>
         <Post>
           <PostTitle>

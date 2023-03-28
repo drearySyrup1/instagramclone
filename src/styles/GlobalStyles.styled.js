@@ -10,7 +10,10 @@ export const GlobalStyle = createGlobalStyle`
 body {
   font-family: sans-serif;
   background-color: ${({ theme: { bg } }) => bg};
-  width: 100vw;
+  //max width without vertical scrollbar
+  width: calc(100vw - (100vw - 100%));
   height: 100vh;
+  color: ${({ theme }) => theme.textColor};
+
 }
 `;

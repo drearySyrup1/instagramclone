@@ -8,6 +8,7 @@ import { RiMessengerLine } from "react-icons/ri";
 import { BsSearch, BsHeart, BsPlusSquare } from "react-icons/bs";
 import styled from "styled-components";
 import SidebarLink from "./SidebarLink";
+import { mediaSizes } from "../../mediaSizes";
 
 const StyledSidebar = styled.div`
   background-color: "#fff";
@@ -18,6 +19,10 @@ const StyledSidebar = styled.div`
   grid-auto-rows: max-content;
   color: ${({ theme }) => theme.textColor};
   border-right: 1px solid ${({ theme }) => theme.sidebarBorderColor};
+
+  @media (width <= ${mediaSizes.SS}) {
+    display: none;
+  }
 `;
 
 const Instagram = styled.h1`

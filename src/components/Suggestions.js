@@ -30,7 +30,7 @@ const Suggestions = () => {
     <>
       <RightSideBar>
         <Profile>
-          <PhotoCircle size="60"></PhotoCircle>
+          <PhotoCircle size="60px"></PhotoCircle>
           <div>
             <span className="bold">aurimas.2</span>
             <span className="grey">Aurimas Gaizauskas</span>
