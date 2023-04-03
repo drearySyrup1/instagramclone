@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import SharedLayout from "./Routes/SharedLayout";
 import IndexLayout from "./Routes/IndexLayout";
 import ProfileLayout from "./Routes/ProfileLayout";
+import PostView from "./components/PostView/PostView";
 
 function App() {
   const [theme, setTheme] = useState("light");
@@ -17,7 +18,9 @@ function App() {
       >
         <Routes>
           <Route path="/" element={<SharedLayout />}>
-            <Route index element={<IndexLayout />} />
+            <Route path="/" element={<IndexLayout />}>
+              <Route path="postview" element={<PostView />} />
+            </Route>
             <Route path="profile" element={<ProfileLayout />} />
           </Route>
         </Routes>

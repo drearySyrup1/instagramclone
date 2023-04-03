@@ -1,18 +1,17 @@
-import React from "react";
-import BottomNav from "../components/BottomNav/BottomNav";
+import React, { useEffect } from "react";
+import { Outlet } from "react-router-dom";
 import Main from "../components/Main/Main";
-import Sidebar from "../components/Sidebar/Sidebar";
 import Suggestions from "../components/Suggestions";
-import { Wrapper } from "../styles/App.styled";
+import { useDynamicGridSize } from "../customhooks/useDynamicGridSize";
+
 const IndexLayout = () => {
+  useDynamicGridSize(3);
+
   return (
     <>
-      <Wrapper size="3">
-        <Sidebar />
-        <Main />
-        <Suggestions />
-        <BottomNav />
-      </Wrapper>
+      <Main />
+      <Suggestions />
+      <Outlet />
     </>
   );
 };

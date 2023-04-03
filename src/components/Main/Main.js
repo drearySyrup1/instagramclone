@@ -64,6 +64,7 @@ const MainStyled = styled.div`
   justify-items: center;
   padding: 2rem;
 
+  /* eslint-disable */
   @media (width <= ${mediaSizes.XS}) {
     padding: 0rem;
   }
@@ -118,7 +119,7 @@ const PostTitleText = styled.div`
   }
 `;
 
-const InteractionMenu = styled.div`
+const StyledInteractionMenu = styled.div`
   display: grid;
   grid-template-columns: auto auto 1fr auto;
   gap: 10px;
@@ -127,6 +128,33 @@ const InteractionMenu = styled.div`
     font-size: 1.5rem;
   }
 `;
+
+export const PostAuthorInfo = ({ children, photoSize }) => {
+  return (
+    <PostTitle>
+      <PhotoCircle size={photoSize}></PhotoCircle>
+      <PostTitleText>
+        <span>
+          <span className="bold">mega_mansions</span>{" "}
+          <span className="grey">• 2h</span>
+        </span>
+        <span className="small">Beverly Hills</span>
+      </PostTitleText>
+      {children}
+    </PostTitle>
+  );
+};
+
+export const InteractionMenu = ({ className }) => {
+  return (
+    <StyledInteractionMenu className={className}>
+      <HeartIcon />
+      <CommentIcon />
+      <SendIcon style={{ flexGrow: 1 }} />
+      <SaveIcon />
+    </StyledInteractionMenu>
+  );
+};
 
 const Main = () => {
   return (
@@ -201,24 +229,11 @@ const Main = () => {
       </StoryWrapper> */}
       <PostsWrapper>
         <Post>
-          <PostTitle>
-            <StoryCircle size="35"></StoryCircle>
-            <PostTitleText>
-              <span>
-                <span className="bold">mega_mansions</span>{" "}
-                <span className="grey">• 2h</span>
-              </span>
-              <span className="small">Beverly Hills</span>
-            </PostTitleText>
+          <PostAuthorInfo photoSize="35px">
             <DotMenuIcon style={{ fontSize: "1rem" }} />
-          </PostTitle>
+          </PostAuthorInfo>
           <img src="https://images.unsplash.com/photo-1678625741301-a5a38243ed01?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY3OTc4NTg5Ng&ixlib=rb-4.0.3&q=80&w=800" />
-          <InteractionMenu>
-            <HeartIcon />
-            <CommentIcon />
-            <SendIcon style={{ flexGrow: 1 }} />
-            <SaveIcon />
-          </InteractionMenu>
+          <InteractionMenu />
           <span className="bold">727,242 Likes</span>
           <span>
             <span className="bold">mega_mansions</span> nice mansion
@@ -229,7 +244,7 @@ const Main = () => {
         </Post>
         <Post>
           <PostTitle>
-            <StoryCircle size="35"></StoryCircle>
+            <PhotoCircle size="35px"></PhotoCircle>
             <PostTitleText>
               <span>
                 <span className="bold">mega_mansions</span>{" "}
